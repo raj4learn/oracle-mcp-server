@@ -1,6 +1,6 @@
 # Oracle MCP Server
 
-**Author:** Rajkumar O
+**Author:** Rajkumar Oppilamani
 **Version:** 1.0.0
 
 
@@ -12,30 +12,57 @@ This server implements the Model Context Protocol (MCP) specification, offering 
 
 ## Table of Contents
 
-- [Architecture](#architecture)
-  - [Component Overview](#component-overview)
-  - [Architecture Diagram](#architecture-diagram)
-  - [Flow Diagram](#flow-diagram)
-- [Features](#features)
-  - [Database Exploration](#database-exploration)
-  - [Source Code Retrieval](#source-code-retrieval)
-  - [Data Operations](#data-operations)
-  - [Pagination and Resource Limiting](#pagination-and-resource-limiting)
-- [Setup and Configuration](#setup-and-configuration)
-  - [Prerequisites](#prerequisites)
-  - [Environment Configuration](#environment-configuration)
-  - [MCP Server Configuration](#mcp-server-configuration)
-- [Usage](#usage)
-  - [Available Tools](#available-tools)
-  - [Example Queries](#example-queries)
-- [Development](#development)
-  - [Installation Guide](#installation-guide)
-  - [Project Structure](#project-structure)
-  - [Extending Functionality](#extending-functionality)
-  - [Logging](#logging)
-- [Deployment](#deployment)
-  - [Production Considerations](#production-considerations)
-  - [Security Best Practices](#security-best-practices)
+- [Oracle MCP Server](#oracle-mcp-server)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+  - [Architecture](#architecture)
+    - [Component Overview](#component-overview)
+    - [Architecture Diagram](#architecture-diagram)
+    - [Flow Diagram](#flow-diagram)
+  - [Features](#features)
+    - [Database Exploration](#database-exploration)
+    - [Source Code Retrieval](#source-code-retrieval)
+    - [Data Operations](#data-operations)
+    - [Pagination and Resource Limiting](#pagination-and-resource-limiting)
+  - [Setup and Configuration](#setup-and-configuration)
+    - [Prerequisites](#prerequisites)
+    - [Environment Configuration](#environment-configuration)
+    - [MCP Server Configuration](#mcp-server-configuration)
+      - [Running the Server Directly](#running-the-server-directly)
+      - [Configuring in MCP Config File](#configuring-in-mcp-config-file)
+      - [Configuration Parameters](#configuration-parameters)
+      - [Additional Configuration Examples](#additional-configuration-examples)
+  - [Usage](#usage)
+    - [Available Tools](#available-tools)
+    - [Example Queries](#example-queries)
+      - [Exploring Database Schemas](#exploring-database-schemas)
+      - [Working with Database Objects](#working-with-database-objects)
+      - [Retrieving Source Code](#retrieving-source-code)
+      - [Examining Table Structure](#examining-table-structure)
+      - [Executing SQL Queries](#executing-sql-queries)
+  - [Detailed Tool Reference](#detailed-tool-reference)
+    - [Schema Exploration Tools](#schema-exploration-tools)
+      - [`list_schemas`](#list_schemas)
+      - [`list_tables`](#list_tables)
+      - [`list_packages`](#list_packages)
+      - [`list_procedures`](#list_procedures)
+      - [`list_functions`](#list_functions)
+      - [`get_object_dependencies`](#get_object_dependencies)
+    - [Source Code Retrieval Tools](#source-code-retrieval-tools)
+      - [`get_object_source_code`](#get_object_source_code)
+    - [Table Structure Tools](#table-structure-tools)
+      - [`get_table_details`](#get_table_details)
+    - [Data Query Tools](#data-query-tools)
+      - [`execute_sql`](#execute_sql)
+    - [Utility and Logging Tools](#utility-and-logging-tools)
+  - [Development](#development)
+    - [Installation Guide](#installation-guide)
+    - [Project Structure](#project-structure)
+    - [Extending Functionality](#extending-functionality)
+    - [Logging](#logging)
+  - [Deployment](#deployment)
+    - [Production Considerations](#production-considerations)
+    - [Security Best Practices](#security-best-practices)
 
 ## Architecture
 
@@ -297,7 +324,7 @@ This example demonstrates running the `main.py` script directly using `uv` (a fa
         "ORACLE_AGENT_HOST": "127.0.0.1",
         "ORACLE_AGENT_PORT": "8002",
         "ORACLE_TOOLS_LOG_LEVEL": "DEBUG"
-      },
+      }, 
       "disabled": false
     }
   }
