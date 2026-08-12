@@ -452,7 +452,7 @@ def register_tools(mcp_app):
     
     @mcp_app.tool(name="get_table_columns")
     @log_entry_exit('oracle_mcp')
-    def get_table_columns(self, table_name: str, schema: str = DEFAULT_SCHEMA, limit: int = DEFAULT_QUERY_LIMIT, dynamicWhereClause: Optional[str] = None) -> List[TableColumnResponse]:
+    def get_table_columns(table_name: str, schema: str = DEFAULT_SCHEMA, limit: int = DEFAULT_QUERY_LIMIT, dynamicWhereClause: Optional[str] = None) -> List[TableColumnResponse]:
         """
         Retrieves detailed information about all columns in a specific table.
         
