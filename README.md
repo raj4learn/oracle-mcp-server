@@ -391,7 +391,7 @@ Expected result:
   "tables": [
     {
       "owner": "SCOTT",
-      "object_name": "ACE_FORM_DATA_TEMP",
+      "object_name": "EMPLOYEE_DATA_TEMP",
       "object_type": "TABLE",
       "status": "VALID",
       "created": "2025-04-29T17:13:33",
@@ -488,7 +488,7 @@ result = await mcp_client.call_tool('get_object_source_code', {
 ```python
 result = await mcp_client.call_tool('get_table_details_with_column_and_indexes', {
     'schema': 'SCOTT',
-    'table_name': 'SI_DB_LOG'
+    'table_name': 'APP_LOG_TBL'
 })
 ```
 
@@ -496,7 +496,7 @@ Expected result:
 ```json
 {
   "schema": "SCOTT",
-  "table": "SI_DB_LOG",
+  "table": "APP_LOG_TBL",
   "columns": [
     {
       "column_name": "LOG_ID",
@@ -526,14 +526,14 @@ Expected result:
 **Execute a simple SQL query:**
 ```python
 result = await mcp_client.call_tool('execute_sql', {
-    'query': "SELECT COUNT(*) FROM SI_DB_LOG WHERE LOG_LEVEL = 'E'"
+    'query': "SELECT COUNT(*) FROM APP_LOG_TBL WHERE LOG_LEVEL = 'E'"
 })
 ```
 
 Expected result:
 ```json
 {
-  "query": "SELECT COUNT(*) FROM SI_DB_LOG WHERE LOG_LEVEL = 'E'",
+  "query": "SELECT COUNT(*) FROM APP_LOG_TBL WHERE LOG_LEVEL = 'E'",
   "result": {
     "columns": ["COUNT(*)"],
     "rows": [[156]]
@@ -544,14 +544,14 @@ Expected result:
 **Execute a more complex query:**
 ```python
 result = await mcp_client.call_tool('execute_sql', {
-    'query': "SELECT LOG_LEVEL, COUNT(*) FROM SI_DB_LOG GROUP BY LOG_LEVEL ORDER BY LOG_LEVEL"
+    'query': "SELECT LOG_LEVEL, COUNT(*) FROM APP_LOG_TBL GROUP BY LOG_LEVEL ORDER BY LOG_LEVEL"
 })
 ```
 
 Expected result:
 ```json
 {
-  "query": "SELECT LOG_LEVEL, COUNT(*) FROM SI_DB_LOG GROUP BY LOG_LEVEL ORDER BY LOG_LEVEL",
+  "query": "SELECT LOG_LEVEL, COUNT(*) FROM APP_LOG_TBL GROUP BY LOG_LEVEL ORDER BY LOG_LEVEL",
   "result": {
     "columns": ["LOG_LEVEL", "COUNT(*)"],
     "rows": [

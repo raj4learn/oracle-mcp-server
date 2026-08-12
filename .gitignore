@@ -148,6 +148,10 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# Server run logs
+stdout.txt
+stderr.txt
+
 # Rope project settings
 .ropeproject
 

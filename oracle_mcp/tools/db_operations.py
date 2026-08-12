@@ -343,7 +343,7 @@ def register_tools(mcp_app):
             table_name (str): Specific table name to retrieve details for.
                                     If None, returns details for all tables in the schema.
                                     Example filters:
-                                    - "(table_name like '%SI_DB_LOG%')"
+                                    - "(table_name like '%TABLE%')"
 
             limit (int): Maximum number of tables to return. Default is 500.
 
